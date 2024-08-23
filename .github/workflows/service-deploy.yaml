@@ -23,7 +23,7 @@ jobs:
           chmod 400 mykey.pem
           
           # Copy the files from the current wrok dir into the EC2 instance, under `~/app`.
-          scp -i mykey.pem -o StrictHostKeyChecking=no -r "." ubuntu@$EC2_PUBLIC_IP:~/app
+          scp -i mykey.pem -o StrictHostKeyChecking=no -r * ubuntu@$EC2_PUBLIC_IP:~/app
           
           # Connect to your EC2 instance and execute the `deploy.sh` script (this script is part of the repo files). 
           # You need to implement the `deploy.sh` script yourself.
