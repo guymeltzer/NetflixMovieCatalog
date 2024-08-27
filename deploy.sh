@@ -2,15 +2,6 @@
 
 DIR_PATH="/home/ubuntu/app"
 
-# Check if the directory exists and is not empty
-if [ -d "$DIR_PATH" ] && [ "$(ls -A "$DIR_PATH")" ]; then
-    # Remove all files in the directory
-    rm -f "$DIR_PATH"/*
-    echo "Files removed from $DIR_PATH"
-else
-    echo "Directory is either empty or does not exist"
-fi
-
 # Navigate to the app directory
 cd ~/app
 
