@@ -64,7 +64,7 @@ def update_popularity():
 
 @app.route('/status')
 def status():
-    return 'OK!!!'
+    return 'OK!!'
 
 
 if __name__ == '__main__':
