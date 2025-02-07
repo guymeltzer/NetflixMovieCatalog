@@ -6,6 +6,8 @@ WORKDIR /app
 
 # Copy project files
 COPY . .
+RUN ls -l /app/data_loader.py
+
 
 ENV PYTHONPATH="${PYTHONPATH}:/app"
 ENV AWS_DEFAULT_REGION=eu-north-1
