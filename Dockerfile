@@ -8,6 +8,7 @@ WORKDIR /app
 COPY . .
 
 ENV PYTHONPATH="${PYTHONPATH}:/app"
+ENV AWS_DEFAULT_REGION=eu-north-1
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
