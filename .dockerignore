@@ -5,6 +5,6 @@ venv/
 
 # PyCharm
 .idea/
-
+.aws
 # VS Code
 .vscode/
