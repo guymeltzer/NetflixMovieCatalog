@@ -7,8 +7,7 @@ WORKDIR /app
 # Copy project files
 COPY . .
 
-# Copy the .aws folder into the container (assuming the local machine has .aws folder)
-COPY .aws /root/.aws
+
 
 # Set AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and AWS_DEFAULT_REGION
 RUN export AWS_ACCESS_KEY_ID=$(cat /root/.aws/credentials | grep aws_access_key_id | awk '{print $3}') && \
@@ -32,3 +31,4 @@ EXPOSE 5000
 
 # Run the application
 CMD ["python", "app.py"]
+#
