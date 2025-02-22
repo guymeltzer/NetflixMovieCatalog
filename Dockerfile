@@ -6,15 +6,14 @@ WORKDIR /app
 
 # Copy project files
 COPY . .
-RUN ls -l /app/data_loader.py
 
-ENV PYTHONPATH="${PYTHONPATH}:/app"
-ENV AWS_DEFAULT_REGION=eu-north-1
-
-# Install dependencies
+# Install dependencies and create a virtual environment
 RUN apt-get update && apt-get install -y python3-pip python3-venv \
-    && python3 -m venv venv \
-    && ./venv/bin/pip install --no-cache-dir -r requirements.txt
+    && python3 -m venv /app/venv \
+    && /app/venv/bin/pip install --no-cache-dir -r requirements.txt
+
+# Set the environment variable to use the virtual environment
+ENV PATH="/app/venv/bin:$PATH"
 
 # Expose the application port
 EXPOSE 5000
