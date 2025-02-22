@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 
 # Ensure the region is set
-region = os.getenv('AWS_DEFAULT_REGION')
+region = os.getenv('AWS_DEFAULT_REGION', 'eu-north-1')
 
 # Initialize DynamoDB resource with region
 dynamodb = boto3.resource('dynamodb', region_name=region)
