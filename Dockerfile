@@ -14,7 +14,7 @@ ENV AWS_DEFAULT_REGION=eu-north-1
 
 # Install dependencies
 RUN apt-get update && apt-get install -y python3-pip
-RUN sudo python3 -m venv venv
+RUN python3 -m venv venv
 RUN source venv/bin/activate
 RUN pip3 install boto3
 RUN pip install --no-cache-dir -r requirements.txt
