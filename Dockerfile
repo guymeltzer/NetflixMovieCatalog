@@ -13,6 +13,8 @@ ENV PYTHONPATH="${PYTHONPATH}:/app"
 ENV AWS_DEFAULT_REGION=eu-north-1
 
 # Install dependencies
+RUN apt-get update && apt-get install -y python3-pip
+RUN pip3 install boto3
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose the application port

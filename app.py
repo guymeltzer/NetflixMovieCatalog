@@ -2,11 +2,15 @@ from flask import Flask, request, jsonify
 import boto3
 from boto3.dynamodb.conditions import Key
 import random
+import os
 
 app = Flask(__name__)
 
-# Initialize DynamoDB resource
-dynamodb = boto3.resource('dynamodb')
+# Ensure the region is set
+region = os.getenv('AWS_DEFAULT_REGION')
+
+# Initialize DynamoDB resource with region
+dynamodb = boto3.resource('dynamodb', region_name=region)
 main_table = dynamodb.Table('Guy-NetflixCatalog')
 genre_table = dynamodb.Table('Guy-MoviesByGenre')
 
