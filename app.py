@@ -9,10 +9,14 @@ app = Flask(__name__)
 # Ensure the region is set
 region = os.getenv('AWS_DEFAULT_REGION', 'eu-north-1')
 
-# Initialize DynamoDB resource with region
-dynamodb = boto3.resource('dynamodb', region_name=region)
-main_table = dynamodb.Table('Guy-NetflixCatalog')
-genre_table = dynamodb.Table('Guy-MoviesByGenre')
+
+with open('data/data_tv.json', 'r') as f:
+    data_tv = json.load(f)
+
+
+with open('data/data_movies.json', 'r') as f:
+    data_movies = json.load(f)
+
 
 @app.route("/", methods=['GET'])
 def home():
