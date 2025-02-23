@@ -39,7 +39,7 @@ def get_discover():
                     break  # stop searching after the first 20 items
 
     return jsonify(results)
-
+#
 
 @app.route('/updatePopularity', methods=['POST'])
 def update_popularity():
